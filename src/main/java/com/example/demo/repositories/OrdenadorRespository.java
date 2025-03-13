@@ -8,8 +8,8 @@ public interface OrdenadorRespository {
 
     List<Ordenador>buscarTodos();
     Ordenador buscarUnOrdenador (String modelo,int numeroserie);
+    List<Ordenador> seleccionar (Ordenador ordenador);
     Ordenador seleccionarUnOrdenador (String modelo,int numeroserie);
     void insertar(Ordenador ordenador);
-    List<Ordenador> seleccionar (Ordenador ordenador);
     void borrar (String modelo, int numeroserie);
 }

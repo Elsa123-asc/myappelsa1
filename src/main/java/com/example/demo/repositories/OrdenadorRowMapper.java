@@ -1,13 +1,9 @@
 package com.example.demo.repositories;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.jdbc.core.RowMapper;
-
 import com.example.demo.negocio.Ordenador;
                
-
 
 public class OrdenadorRowMapper implements RowMapper<Ordenador> {
 
