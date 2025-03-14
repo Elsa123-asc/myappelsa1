@@ -25,7 +25,7 @@ public class OrdenadorRestControllers {
     private OrdenadorRepository ordenadorRepository;
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:8080")
     List<Ordenador> buscarTodos() {
         return ordenadorRepository.buscarTodos();
     }
@@ -36,18 +36,18 @@ public class OrdenadorRestControllers {
     }
 
     @GetMapping("/{numeroserie}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:8080")
     public Ordenador buscarUno(@PathVariable int numeroserie) {
         return ordenadorRepository.buscarUno(numeroserie);
     }
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:8080")
     public void insertar(@RequestBody Ordenador ordenador) {
         ordenadorRepository.insertar(ordenador);
     }
 
-    @GetMapping("/ordenadores")
+    @GetMapping("/ordenador")
     public List<Ordenador> seleccionar() {
         return ordenadorRepository.buscarTodos();
     }
