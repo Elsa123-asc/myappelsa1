@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.negocio.Ordenador;
-import com.example.demo.repositories.OrdenadorRespository;
+import com.example.demo.repositories.OrdenadorRepository;
 
 @RestController
 @RequestMapping("webapi/ordenador")
@@ -23,44 +22,33 @@ public class OrdenadorRestControllers {
 
     @Autowired
     @Qualifier("jdbc")
-    private OrdenadorRespository ordenadorRepository;
-    
+    private OrdenadorRepository ordenadorRepository;
+
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")
-     List<Ordenador>buscarTodos() {
-     return ordenadorRepository.buscarTodos();
+    List<Ordenador> buscarTodos() {
+        return ordenadorRepository.buscarTodos();
     }
 
-
-    @DeleteMapping ("/numeroserie/{numeroserie}/modelo/{modelo}")
-    public void borrar (@PathVariable String modelo, @PathVariable int numeroserie){
-        ordenadorRepository.borrar(modelo, numeroserie);
+    @DeleteMapping("/{numeroserie}")
+    public void borrar(@PathVariable int numeroserie) {
+        ordenadorRepository.borrar(numeroserie);
     }
 
-    @GetMapping("/numeroserie/{numeroserie}/modelo/{modelo}")
+    @GetMapping("/{numeroserie}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public Ordenador buscarUnOrdenador (@PathVariable String modelo, @PathVariable int numeroserie){
-        return ordenadorRepository.buscarUnOrdenador(modelo,numeroserie);
+    public Ordenador buscarUno(@PathVariable int numeroserie) {
+        return ordenadorRepository.buscarUno(numeroserie);
     }
 
     @PostMapping
     @CrossOrigin(origins = "http://localhost:4200")
-    public void insertar (@RequestBody Ordenador ordenador) {
+    public void insertar(@RequestBody Ordenador ordenador) {
         ordenadorRepository.insertar(ordenador);
-    }
-   
-    @GetMapping(params = "modelo,numeroserie")
-    public Ordenador seleccionarUnOrdenador(@RequestParam String modelo,@RequestParam int numeroserie) {
-    return ordenadorRepository.seleccionarUnOrdenador(modelo,numeroserie);
     }
 
     @GetMapping("/ordenadores")
     public List<Ordenador> seleccionar() {
-    return ordenadorRepository.buscarTodos();  
+        return ordenadorRepository.buscarTodos();
     }
 }
-
-
-   
-
-

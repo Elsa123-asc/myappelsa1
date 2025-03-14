@@ -7,6 +7,7 @@ import com.example.demo.negocio.Ordenador;
 
 public class OrdenadorRowMapper implements RowMapper<Ordenador> {
 
+    @SuppressWarnings("null")
     @Override
     public Ordenador mapRow (ResultSet resultSet, int rowNum) throws SQLException {
     
