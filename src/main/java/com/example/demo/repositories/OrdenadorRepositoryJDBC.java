@@ -40,7 +40,7 @@ public class OrdenadorRepositoryJDBC implements OrdenadorRepository {
     }
 
     @Override
-    public void borrar(int... numeroserie) {
+    public void borrartodos(int... numeroserie) {
         plantilla.update("delete from ordenador where numeroserie=?", numeroserie);
     }
       

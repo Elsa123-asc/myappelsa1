@@ -51,4 +51,13 @@ public class OrdenadorRestControllers {
     public List<Ordenador> seleccionar() {
         return ordenadorRepository.buscarTodos();
     }
+
+    @PostMapping("/borrartodos")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public void borrarTodos(@RequestParam List<Integer> ordenadorSeleccionado) {
+        for (Integer numeroserie : ordenadorSeleccionado) {
+            ordenadorRepository.borrar(numeroserie);
+        }
+        return ResponseEntity.noContent().build(); 
+    }
 }

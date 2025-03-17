@@ -10,5 +10,6 @@ public interface OrdenadorRepository {
     Ordenador buscarUno (int numeroserie);
     void insertar(Ordenador ordenador);
     void borrar ( int numeroserie);
-    void borrar ( int... numeroserie);
+    void borrartodos ( int... numeroserie);
+    
 }
